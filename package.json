@@ -1,0 +1,27 @@
+{
+  "name": "stream-transduce",
+  "version": "1.0.0",
+  "description": "transducing utilities for node streams",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZorvyY/stream-transduce.git"
+  },
+  "keywords": [
+    "functional-programming",
+    "transducer",
+    "ramda"
+  ],
+  "author": "Zoravur Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZorvyY/stream-transduce/issues"
+  },
+  "homepage": "https://github.com/ZorvyY/stream-transduce#readme",
+  "dependencies": {
+    "ramda": "^0.26.1"
+  }
+}
