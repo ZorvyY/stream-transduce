@@ -1,6 +1,6 @@
 {
   "name": "stream-transduce",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "transducing utilities for node streams",
   "main": "index.js",
   "scripts": {
