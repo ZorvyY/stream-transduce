@@ -1,6 +1,6 @@
 // TESTS
 const R = require('ramda');
-const { xWrapStream, wrapStreamReduceable } = require('ramda');
+const { xWrapStream, wrapStreamReducible } = require('ramda');
 
 
 async function main() {
@@ -18,21 +18,21 @@ async function main() {
 
   const arr = [3,1,4,1,5,9,2,6,5];
 
-  //const result = await R.transduce(ducer, streamAccum, process.stdout, wrapStreamReduceable(process.stdin));
-  const result = await R.transduce(ducer, (acc, x) => acc + x, 0, wrapStreamReduceable(process.stdin));
+  //const result = await R.transduce(ducer, streamAccum, process.stdout, wrapStreamReducible(process.stdin));
+  const result = await R.transduce(ducer, (acc, x) => acc + x, 0, wrapStreamReducible(process.stdin));
   console.log(result);
   //const result = R.transduce(ducer, streamAccum, process.stdout, [3,1,4,1,5,9,2,6,5]);
 
 
-  //const result = await R.into(xWrapStream(process.stdout), ducer, wrapStreamReduceable(process.stdin));
+  //const result = await R.into(xWrapStream(process.stdout), ducer, wrapStreamReducible(process.stdin));
   //const result = R.into(xWrapStream(process.stdout), ducer, [3,1,4,1,5,9,2,6,5]);
 
 
   /*
 
-  const result = await R.into(xWrapStream(process.stdout), ducer, wrapStreamReduceable(process.stdin));
-  const result = await R.into(xWrapStream(process.stdout), ducer, wrapStreamReduceable(process.stdin));
-  const result = await R.into(xWrapStream(process.stdout), ducer, wrapStreamReduceable(process.stdin));
+  const result = await R.into(xWrapStream(process.stdout), ducer, wrapStreamReducible(process.stdin));
+  const result = await R.into(xWrapStream(process.stdout), ducer, wrapStreamReducible(process.stdin));
+  const result = await R.into(xWrapStream(process.stdout), ducer, wrapStreamReducible(process.stdin));
   const result = R.into(xWrapStream(process.stdout), ducer, [3,1,4,1,5,9,2,6,5]);
   */
 

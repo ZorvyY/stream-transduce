@@ -1,9 +1,9 @@
-const { xWrapStream, wrapStreamReduceable } = require('./index.js');
+const { xWrapStream, wrapStreamReducible } = require('./index.js');
 const R = require('ramda');
 
 // Get a readable stream somehow
 const stream = process.stdin;
-const reduceableStream = wrapStreamReduceable(stream);
+const reducibleStream = wrapStreamReducible(stream);
 
 // Convert to number, double, and round
 const transducer = R.compose(
@@ -14,7 +14,7 @@ const transducer = R.compose(
 );
 
 // Log the sum
-R.transduce(transducer, (acc, x) => acc+x, 0, reduceableStream).then(console.log);
+R.transduce(transducer, (acc, x) => acc+x, 0, reducibleStream).then(console.log);
 
 // Note when running: Use CTRL+D to emit an EOF character, signaling the end of stdin.
 // The value will only be logged after the readable stream has ended.

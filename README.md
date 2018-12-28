@@ -8,16 +8,14 @@
 npm install stream-transduce
 ```
 
-*Note: not published to npm yet!*
-
 ## Usage
 
 ```javascript
-const { xWrapStream, wrapStreamReduceable } = require('stream-transduce');
+const { xWrapStream, wrapStreamReducible } = require('stream-transduce');
 const R = require('ramda');
 
 // Get a readable stream somehow
-const reduceableStream = wrapStreamReduceable(process.stdin);
+const reducibleStream = wrapStreamReducible(process.stdin);
 
 // Convert to number, double, and round
 const transducer = R.compose(
@@ -29,7 +27,7 @@ const transducer = R.compose(
 
 // Log the sum of the doubles of each number entered
 // into the console
-R.transduce(transducer, (acc, x) => acc+x, 0, reduceableStream).then(console.log);
+R.transduce(transducer, (acc, x) => acc+x, 0, reducibleStream).then(console.log);
 ```
 
 ## Motivation

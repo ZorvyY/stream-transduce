@@ -1,18 +1,18 @@
-// suite for generating transformers & reduceables
+// suite for generating transformers & reducibles
 function _streamAccum(a, c) {
   a.write(c);
   return a;
 }
 
 /**
- * Wraps a writeable stream in a transformer, making it suitable for use as
+ * Wraps a writable stream in a transformer, making it suitable for use as
  * an accumulator value.
- * @param {stream.Writeable} stream - The stream to be used as the accumulator.
+ * @param {stream.writeable} stream - The stream to be used as the accumulator.
  * @param {function} [fn=_streamAccum] - The accumulator function. Defaults to `_streamAccum`. 
  * @return {{x: fn}} - The transformer, with the init, result, and step transducer functions as properties.
  * @example
  * 
- *     // Get an writeable stream somehow
+ *     // Get an writable stream somehow
  *     const stream = process.stdout;
  *     const transformer = xWrapStream(stream);
  *
@@ -52,7 +52,7 @@ function _reduceStream(fn, acc) {
 
 /**
  * This function adds a `reduce` method to stream method, returning a new
- * reduceable stream to be used . The defaut reducer is `_reduceStream`. 
+ * reducible stream to be used . The defaut reducer is `_reduceStream`. 
  * @param {stream.Readable} stream - The stream to be wrapped.
  * @param {function} [reducer=reduceStream] - The reducer. Defaults to the builtin `_reduceStream`. 
  * @return {*} The resulting value of the reduction.
@@ -60,7 +60,7 @@ function _reduceStream(fn, acc) {
  * 
  *     // Get a readable stream somehow
  *     const stream = process.stdin;
- *     const reduceableStream = wrapStreamReduceable(stream);
+ *     const reducibleStream = wrapStreamReducible(stream);
  *
  *     // Convert to number, double, and round
  *     const transducer = R.compose(
@@ -71,16 +71,16 @@ function _reduceStream(fn, acc) {
  *     );
  *
  *     // Log the sum
- *     R.transduce(transducer, (acc, x) => acc+x, 0, reduceableStream).then(console.log);
+ *     R.transduce(transducer, (acc, x) => acc+x, 0, reducibleStream).then(console.log);
  *     
  */
-function wrapStreamReduceable(stream, reducer=_reduceStream) {
+function wrapStreamReducible(stream, reducer=_reduceStream) {
   stream['reduce'] = reducer;
   return stream;
 }
 
 module.exports = {
   xWrapStream,
-  wrapStreamReduceable,
+  wrapStreamReducible,
 };
 
