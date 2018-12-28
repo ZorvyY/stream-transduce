@@ -1,6 +1,6 @@
 # Transducer wrapper for node streams
 
-`stream-transduce` is a small utility library that allows node streams to be used with transducers as specified in libraries like [Transducers.js](), [Transducers-js]() and [Ramda](). This is designed specifically for use with Ramda.
+`stream-transduce` is a small utility library that allows node streams to be used with transducers as specified in libraries like [Transducers.js](https://github.com/jlongster/transducers.js), [Transducers-js](https://github.com/cognitect-labs/transducers-js) and [Ramda](https://github.com/ramda/ramda). This is designed specifically for use with Ramda.
 
 ## Installation
 
@@ -37,3 +37,7 @@ Streams are an example of *data expressed over time* -- this makes it ideal targ
 ## Dependence on Ramda
 
 This was designed to be used with Ramda, and more specifically with the Ramda functions `into` and `transduce`. The resulting objects follow the transducer protocol. Some of the capabilities of this library are provided by other libraries such as `transducers-js`, but none provide a turnkey solution for Node streams in particular.
+
+## API
+
+The API can be found [here](./DOCS.md)

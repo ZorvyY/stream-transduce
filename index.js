@@ -12,22 +12,22 @@ function _streamAccum(a, c) {
  * @return {{x: fn}} - The transformer, with the init, result, and step transducer functions as properties.
  * @example
  * 
- *     // Get an writable stream somehow
- *     const stream = process.stdout;
- *     const transformer = xWrapStream(stream);
+ * // Get an writable stream somehow
+ * const stream = process.stdout;
+ * const transformer = xWrapStream(stream);
  *
- *     // Convert to number, double, and round, and make to string
- *     const chunkify = R.pipe(R.toString, R.concat(R.__, '\n'));
- *     const transducer = R.compose(
- *         R.map(R.toString),
- *         R.map(Number),
- *         R.map(R.multiply(2)), 
- *         R.map(x => Math.round(x*100)/100),
- *         R.map(chunkify),
- *     );
+ * // Convert to number, double, and round, and make to string
+ * const chunkify = R.pipe(R.toString, R.concat(R.__, '\n'));
+ * const transducer = R.compose(
+ *     R.map(R.toString),
+ *     R.map(Number),
+ *     R.map(R.multiply(2)), 
+ *     R.map(x => Math.round(x*100)/100),
+ *     R.map(chunkify),
+ * );
  *
- *     // Print sum to stdout
- *     R.into(transformer, transducer, [1,2,3,5,3,2]);
+ * // Print sum to stdout
+ * R.into(transformer, transducer, [1,2,3,5,3,2]);
  *     
  */
 function xWrapStream(stream, fn=_streamAccum) {
@@ -58,20 +58,20 @@ function _reduceStream(fn, acc) {
  * @return {*} The resulting value of the reduction.
  * @example
  * 
- *     // Get a readable stream somehow
- *     const stream = process.stdin;
- *     const reducibleStream = wrapStreamReducible(stream);
+ * // Get a readable stream somehow
+ * const stream = process.stdin;
+ * const reducibleStream = wrapStreamReducible(stream);
  *
- *     // Convert to number, double, and round
- *     const transducer = R.compose(
- *         R.map(R.toString),
- *         R.map(Number),
- *         R.map(R.multiply(2)), 
- *         R.map(x => Math.round(x*100)/100),
- *     );
+ * // Convert to number, double, and round
+ * const transducer = R.compose(
+ *     R.map(R.toString),
+ *     R.map(Number),
+ *     R.map(R.multiply(2)), 
+ *     R.map(x => Math.round(x*100)/100),
+ * );
  *
- *     // Log the sum
- *     R.transduce(transducer, (acc, x) => acc+x, 0, reducibleStream).then(console.log);
+ * // Log the sum
+ * R.transduce(transducer, (acc, x) => acc+x, 0, reducibleStream).then(console.log);
  *     
  */
 function wrapStreamReducible(stream, reducer=_reduceStream) {

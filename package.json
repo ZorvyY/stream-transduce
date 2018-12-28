@@ -4,7 +4,7 @@
   "description": "transducing utilities for node streams",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "generate-docs": "node_modules/.bin/jsdoc2md index.js > DOCS.md"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,9 @@
     "url": "https://github.com/ZorvyY/stream-transduce/issues"
   },
   "homepage": "https://github.com/ZorvyY/stream-transduce#readme",
-  "dependencies": {
-    "ramda": "^0.26.1"
+  "dependencies": {},
+  "devDependencies": {
+    "ramda": "^0.26.1",
+    "jsdoc-to-markdown": "^4.0.1"
   }
 }
