@@ -8,7 +8,8 @@ function _streamAccum(a, c) {
  * Wraps a writable stream in a transformer, making it suitable for use as
  * an accumulator value.
  * @param {stream.writeable} stream - The stream to be used as the accumulator.
- * @param {function} [fn=_streamAccum] - The accumulator function. Defaults to `_streamAccum`. 
+ * @param {function} [fn=_streamAccum] - The accumulator function. Defaults to the built-in `_streamAccum`,
+ *  which expects a stream and chunk and returns a stream.
  * @return {{x: fn}} - The transformer, with the init, result, and step transducer functions as properties.
  * @example
  * 
@@ -52,9 +53,11 @@ function _reduceStream(fn, acc) {
 
 /**
  * This function adds a `reduce` method to stream method, returning a new
- * reducible stream to be used . The defaut reducer is `_reduceStream`. 
+ * reducible stream to be used . The defaut reducer is `_reduceStream`, which is a method
+ * that steps on new chunk data and returns a promise that resolves when 
+ * the stream ends.
  * @param {stream.Readable} stream - The stream to be wrapped.
- * @param {function} [reducer=reduceStream] - The reducer. Defaults to the builtin `_reduceStream`. 
+ * @param {function} [reducer=reduceStream] - The reducer. Defaults to the built-in `_reduceStream`. 
  * @return {*} The resulting value of the reduction.
  * @example
  * 

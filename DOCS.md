@@ -7,7 +7,9 @@ an accumulator value.</p>
 </dd>
 <dt><a href="#wrapStreamReducible">wrapStreamReducible(stream, [reducer])</a> ⇒ <code>*</code></dt>
 <dd><p>This function adds a <code>reduce</code> method to stream method, returning a new
-reducible stream to be used . The defaut reducer is <code>_reduceStream</code>.</p>
+reducible stream to be used . The defaut reducer is <code>_reduceStream</code>, which is a method
+that steps on new chunk data and returns a promise that resolves when 
+the stream ends.</p>
 </dd>
 </dl>
 
@@ -23,7 +25,7 @@ an accumulator value.
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | stream | <code>stream.writeable</code> |  | The stream to be used as the accumulator. |
-| [fn] | <code>function</code> | <code>_streamAccum</code> | The accumulator function. Defaults to `_streamAccum`. |
+| [fn] | <code>function</code> | <code>_streamAccum</code> | The accumulator function. Defaults to the built-in `_streamAccum`,  which expects a stream and chunk and returns a stream. |
 
 **Example**  
 ```js
@@ -49,7 +51,9 @@ R.into(transformer, transducer, [1,2,3,5,3,2]);
 
 ## wrapStreamReducible(stream, [reducer]) ⇒ <code>\*</code>
 This function adds a `reduce` method to stream method, returning a new
-reducible stream to be used . The defaut reducer is `_reduceStream`.
+reducible stream to be used . The defaut reducer is `_reduceStream`, which is a method
+that steps on new chunk data and returns a promise that resolves when 
+the stream ends.
 
 **Kind**: global function  
 **Returns**: <code>\*</code> - The resulting value of the reduction.  
@@ -57,7 +61,7 @@ reducible stream to be used . The defaut reducer is `_reduceStream`.
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | stream | <code>stream.Readable</code> |  | The stream to be wrapped. |
-| [reducer] | <code>function</code> | <code>reduceStream</code> | The reducer. Defaults to the builtin `_reduceStream`. |
+| [reducer] | <code>function</code> | <code>reduceStream</code> | The reducer. Defaults to the built-in `_reduceStream`. |
 
 **Example**  
 ```js
