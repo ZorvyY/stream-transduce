@@ -36,7 +36,7 @@ Streams are an example of *data expressed over time* -- this makes it ideal targ
 
 ## Dependence on Ramda
 
-This was designed to be used with Ramda, and more specifically with the Ramda functions `into` and `transduce`. The resulting objects follow the transducer protocol. Some of the capabilities of this library are provided by other libraries such as `transducers-js`, but none provide a turnkey solution for Node streams in particular.
+This was designed to be used with Ramda, and more specifically with the Ramda functions `into` and `transduce`. The resulting objects follow the transducer protocol. Some of the capabilities of this library (such as generating a transformer from a reducing function) are provided by other libraries such as `transducers-js`, but none provide a turnkey solution for Node streams in particular.
 
 ## API
 
