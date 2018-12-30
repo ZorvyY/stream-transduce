@@ -32,7 +32,7 @@ R.transduce(transducer, (acc, x) => acc+x, 0, reducibleStream).then(console.log)
 
 ## Motivation
 
-Streams are an example of *data expressed over time* -- this makes it ideal target for use by transducers. Transducers can be used to compose logging functions, for instance, and if the data is too large, it becomes impossible to read it all into memory as would be required to reduce an array, object, or string.
+Streams are an example of *data expressed over time* -- this makes it ideal target for use by transducers. Transducers can be used to compose logging functions, for instance, and if the data is too large, it becomes impractical to read it all into memory as would be required to reduce an array, object, or string.
 
 ## Dependence on Ramda
 
